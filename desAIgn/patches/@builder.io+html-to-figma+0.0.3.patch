@@ -1,0 +1,51 @@
+diff --git a/node_modules/@builder.io/html-to-figma/dist/lib/html-to-figma/index.js b/node_modules/@builder.io/html-to-figma/dist/lib/html-to-figma/index.js
+index 8d36fd1..8cff438 100644
+--- a/node_modules/@builder.io/html-to-figma/dist/lib/html-to-figma/index.js
++++ b/node_modules/@builder.io/html-to-figma/dist/lib/html-to-figma/index.js
+@@ -112,9 +112,7 @@ export function htmlToFigma(selector = "body", useFrames = false, time = false)
+         console.time("Parse dom");
+     }
+     const layers = [];
+-    const el = selector instanceof HTMLElement
+-        ? selector
+-        : document.querySelector(selector || "body");
++    const el = selector;
+     if (el) {
+         processSvgUseElements(el);
+         const els = generateElements(el);
+diff --git a/node_modules/@builder.io/html-to-figma/dist/main.js b/node_modules/@builder.io/html-to-figma/dist/main.js
+index 74a34f3..02d33c1 100644
+--- a/node_modules/@builder.io/html-to-figma/dist/main.js
++++ b/node_modules/@builder.io/html-to-figma/dist/main.js
+@@ -354,9 +354,9 @@ const list = [
+     "boxShadow",
+ ];
+ function getAppliedComputedStyles(element, pseudo) {
+-    if (!(element instanceof HTMLElement || element instanceof SVGElement)) {
+-        return {};
+-    }
++    // if (!(element instanceof HTMLElement || element instanceof SVGElement)) {
++    //     return {};
++    // }
+     const styles = getComputedStyle(element, pseudo);
+     const color = styles.color;
+     const defaults = {
+@@ -1012,6 +1012,7 @@ const getLayersForElement = (el) => {
+     // TO-DO: what does `appliedStyles` do here? All we do is check that it's non-empty
+     const appliedStyles = getAppliedComputedStyles(el);
+     const computedStyle = getComputedStyle(el);
++
+     if ((size(appliedStyles) ||
+         el instanceof HTMLImageElement ||
+         el instanceof HTMLVideoElement) &&
+@@ -1079,9 +1080,7 @@ function htmlToFigma(selector = "body", useFrames = false, time = false) {
+         console.time("Parse dom");
+     }
+     const layers = [];
+-    const el = selector instanceof HTMLElement
+-        ? selector
+-        : document.querySelector(selector || "body");
++    const el = selector;
+     if (el) {
+         processSvgUseElements(el);
+         const els = generateElements(el);

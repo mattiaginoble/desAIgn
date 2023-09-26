@@ -1,0 +1,51 @@
+{
+  "name": "figma-plugin-react-vite",
+  "private": true,
+  "version": "0.0.0",
+  "type": "module",
+  "scripts": {
+    "postinstall": "patch-package",
+    "dev": "vite -c ./vite.config.ui.ts",
+    "build": "tsc && npm run build:ui && npm run build:plugin && cross-os refresh-figma",
+    "build:ui": "vite build -c ./vite.config.ui.ts --emptyOutDir",
+    "build:plugin": "vite build -c ./vite.config.plugin.ts",
+    "preview": "vite preview",
+    "api": "nodemon ./api/index.js"
+  },
+  "cross-os": {
+    "refresh-figma": {
+      "win32": "cscript ./scripts/last_plugin.figma.vbs"
+    }
+  },
+  "dependencies": {
+    "@builder.io/html-to-figma": "^0.0.3",
+    "cors": "^2.8.5",
+    "dotenv": "^16.0.3",
+    "express": "^4.18.2",
+    "monorepo-networker": "^1.5.2",
+    "openai": "^3.2.1",
+    "react": "^18.2.0",
+    "react-dom": "^18.2.0"
+  },
+  "devDependencies": {
+    "@figma/plugin-typings": "^1.62.0",
+    "@svgr/core": "^6.5.1",
+    "@types/node": "^18.15.11",
+    "@types/postcss-url": "^10.0.0",
+    "@types/react": "^18.0.28",
+    "@types/react-dom": "^18.0.11",
+    "@vitejs/plugin-react": "^3.1.0",
+    "cross-os": "^1.5.0",
+    "nodemon": "^2.0.22",
+    "patch-package": "^7.0.0",
+    "postcss": "^8.4.21",
+    "postcss-url": "^10.1.3",
+    "prettier": "^2.8.7",
+    "sass": "^1.60.0",
+    "typescript": "^4.9.3",
+    "vite": "^4.2.0",
+    "vite-plugin-generate-file": "^0.0.4",
+    "vite-plugin-singlefile": "^0.13.3",
+    "vite-plugin-svgr": "^2.4.0"
+  }
+}
