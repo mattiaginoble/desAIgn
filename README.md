@@ -1,6 +1,6 @@
 # desAIgn
 
-[![MIT license](https://img.shields.io/badge/License-MIT-blue.svg)](https://github.com/mattiaginoble/desAIgn/blob/main/LICENSE)
+![GitHub](https://img.shields.io/github/license/mattiaginoble/desAIgn)
 ![GitHub top language](https://img.shields.io/github/languages/top/mattiaginoble/desAIgn?logo=typescript)
 ![GitHub release](https://img.shields.io/github/v/release/mattiaginoble/desAIgn.svg?color=green)
 ![GitHub all releases](https://img.shields.io/github/downloads/mattiaginoble/desAIgn/total)
